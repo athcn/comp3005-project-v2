@@ -7,9 +7,9 @@ Youtube Link to [Video](https://youtu.be/J8lQTiFMlXg)
 
 ### Setup
 ---
-1. Download NodeJS as this is required to run the application 
+1. Download [NodeJS](https://nodejs.org/en/download/current) as this is required to run the application (It should also install `npm` with it)
 2. `cd webapp` and run `npm install` to download the required packages
-3. You will want to create a `.env` file in the `webapp` directory with the following content
+3. You will want to create a `.env` file in the root `webapp` directory with the following content
 ```
 # Database Setup
 POSTGRES_HOST='localhost'    # Postgres ip address[es] or domain name[s]
@@ -47,14 +47,18 @@ admin1
 ```
 
 ### Information about Project
-This was implemented using NodeJS with a React/Vite frontend and an ExpressJS server running as the backend using [`postgresjs`](https://github.com/porsager/postgres) as the library for the backend to talk to the database.
+This is a health and fitness web application that can run locally on your computer! Designed to track people's health but also as a management tool for organizing sessions and billing.
 
-The UI is using [`React Bootstrap`](https://react-bootstrap.netlify.app/) as a framework to build it quicker.
+This was implemented using NodeJS with a [React/Vite](https://vitejs.dev/guide/) frontend and an [ExpressJS](https://expressjs.com/) server running as the backend using [`postgresjs`](https://github.com/porsager/postgres) as the library for the backend to talk to the relational database.
+
+The UI is using [`React Bootstrap`](https://react-bootstrap.netlify.app/) as a framework to build it quicker, it is the same as Bootstrap but built into the component style that React tends to use.
 
 **File Structure**
-- `documentation` holds the diagrams and report
+- `documentation` holds the diagrams
 - `SQL` holds the `.sql` files
 - `webapp` holds the implementation of the project as a Web application 
+
+>Note: There may appear to be many errors in the project from VS code's perspective. This is due to this project being built in **TypeScript** and it does not like using **any** or implicit **any**
 
 #### Assumptions
 - **Members** are able to create 1:1 personal sessions with the Trainer using their available time
@@ -68,4 +72,10 @@ The UI is using [`React Bootstrap`](https://react-bootstrap.netlify.app/) as a f
 - **Admin**s are the ones that can assign rooms to different sessions (room booking)
 
 #### Bonus Features
-- A timetable view on the **Trainer** homepage
+- Billing Timeline for Members (can view previously paid bills)
+- Billing Overview for Admin (can generate bills but can also see the status of each bill
+previously sent)
+- Timetable visual for Trainers (can view a table on their overview of what they have allotted for
+their available times)
+- All creation/update actions are done through Modal views rather than another page
+- Added passwords for login/authentication (using just normal non-hashed passwords though)

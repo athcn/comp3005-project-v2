@@ -9,7 +9,6 @@ export enum AuthStatusCode {
   INVALID = "Invalid",
 }
 
-// TODO: Add more context later
 export type AuthContextType = {
   userId: string | null,
   userType: string | null,
@@ -21,7 +20,6 @@ export type AuthContextType = {
   logout: () => void,
 }
 
-// TODO: Investigate the type issue later
 const AuthContextDefault: AuthContextType = {
   userId: null,
   userType: null,

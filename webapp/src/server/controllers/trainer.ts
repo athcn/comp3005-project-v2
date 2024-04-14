@@ -6,7 +6,6 @@ export const createSchedule = async (req: Request, res: Response) => {
   try {
     const {trainerId, day, startingTime, endingTime} = req.body;
 
-    // TODO: Add a check that looks to see if there is a conflicting schedule already existing
 
     console.log(req.body);
 

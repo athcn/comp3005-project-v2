@@ -524,7 +524,6 @@ export const updateRoutine = async (req: Request, res: Response) => {
         WHERE routine_id = ${routineId}
     `
 
-    // TODO: Make more efficient
     await sql`
       DELETE FROM exerciseroutines
         WHERE routine_id = ${routineId}

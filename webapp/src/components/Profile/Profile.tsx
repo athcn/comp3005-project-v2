@@ -37,7 +37,6 @@ export const Profile = () => {
   }, [userId])
 
   
-  // TODO: Redirect back to Home if not a MEMBER
   if (!userId || !isLoggedIn) {
     return;
   }
@@ -65,7 +64,6 @@ export const Profile = () => {
      })
   }
 
-  // TODO: There are issues with FLOAT numbers atm (can not type '.')
   return (
     <Container>
       <Card>

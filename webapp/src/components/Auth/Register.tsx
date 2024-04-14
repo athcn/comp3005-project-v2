@@ -33,7 +33,6 @@ export const Register = () => {
       return response.json();
     })
     .then(data => {
-      // TODO: Add some error correction like null values
       console.log(data);
     })
   }
