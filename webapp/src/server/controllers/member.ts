@@ -447,6 +447,11 @@ export const getRoutine = async (req: Request, res: Response) => {
     }
     const routineId = String(req.query.routineId);
 
+    if (!req.query.userId) {
+      throw "Missing userId";
+    }
+    const userId = String(req.query.userId);
+
     console.log("[Exercise] Getting routineId ", routineId);
 
     // Grabbing the routine
@@ -454,14 +459,14 @@ export const getRoutine = async (req: Request, res: Response) => {
       SELECT routines.routine_id, routines.name AS routine_name, exercises.exercise_id, exercises.area_of_focus, exercises.name, exercises.reps, exercises.sets, exercises.weight FROM routines
         LEFT JOIN exerciseroutines ON routines.routine_id = exerciseroutines.routine_id
         LEFT JOIN exercises ON exerciseroutines.exercise_id = exercises.exercise_id
-        WHERE routines.routine_id = ${routineId}
+        WHERE routines.routine_id = ${routineId} AND routines.member_id = ${userId}
     `
 
     // Grabbing the exercises that were not in the routine
     const unusedExercises = await sql`
       SELECT DISTINCT ON (exercises.exercise_id) exercises.exercise_id, exercises.area_of_focus, exercises.name, exercises.reps, exercises.sets, exercises.weight FROM exercises
           LEFT JOIN exerciseroutines ON exercises.exercise_id = exerciseroutines.exercise_id
-          WHERE exerciseroutines.exercise_id NOT IN (SELECT exercise_id FROM exerciseroutines WHERE routine_id = ${routineId})
+          WHERE exerciseroutines.exercise_id NOT IN (SELECT exercise_id FROM exerciseroutines WHERE routine_id = ${routineId}) AND exercises.member_id = ${userId}
     `
     
 

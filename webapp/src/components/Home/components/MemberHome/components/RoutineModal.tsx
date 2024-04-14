@@ -31,7 +31,8 @@ export const RoutineModal = ({show, setShow, routineId, setRoutineId}: NewRoutin
   // Used for setting values automatically when editing
   useEffect(() => {
     if (routineId && firstLoad) {
-      const params = new URLSearchParams({ routineId: routineId });
+      if (!userId) return;
+      const params = new URLSearchParams({ routineId: routineId, userId: userId });
       fetch(getFormatedUrl(`member/routine?${params.toString()}`))
       .then(response => {
         if (!response.ok) {
@@ -232,7 +233,7 @@ export const RoutineModal = ({show, setShow, routineId, setRoutineId}: NewRoutin
                   {
                     availableExercises.map((exercise, index) => {
                       return (
-                        <option value={index} key={index}>{`${index} - ${exercise.name}`}</option>
+                        <option value={index} key={index}>{`${exercise.name}`}</option>
                       )
                     })
                   }
