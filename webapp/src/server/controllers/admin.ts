@@ -142,7 +142,7 @@ export const getSessions = async (req: Request, res: Response) => {
       SELECT trainers.first_name, trainers.last_name, sessions.session_id, sessions.session_date, sessions.start_time, sessions.end_time, sessions.session_type FROM sessions
         LEFT JOIN trainers ON sessions.trainer_id = trainers.trainer_id
         LEFT JOIN bookings ON sessions.session_id = bookings.session_id
-        WHERE bookings.booking_id IS NULL
+        WHERE bookings.room_id IS NULL
         ORDER BY session_date, sessions.start_time
     `
 

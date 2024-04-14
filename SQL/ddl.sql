@@ -72,7 +72,6 @@ CREATE TABLE IF NOT EXISTS Routines (
 
 --- Creating intermediate table for Exercises inside Routines
 CREATE TABLE IF NOT EXISTS ExerciseRoutines (
-  exercise_routine_id   SERIAL          PRIMARY KEY,
   routine_id            SERIAL          REFERENCES Routines(routine_id) ON DELETE CASCADE,
   exercise_id           SERIAL          REFERENCES Exercises(exercise_id) ON DELETE CASCADE
 );
@@ -111,7 +110,6 @@ CREATE TABLE IF NOT EXISTS Rooms (
 
 --- Creating intermediate table for Sessions booked in specific Rooms
 CREATE TABLE IF NOT EXISTS Bookings (
-  booking_id            SERIAL          PRIMARY KEY,
   session_id            SERIAL          REFERENCES Sessions(session_id),
   room_id               SERIAL          REFERENCES Rooms(room_id)
 );

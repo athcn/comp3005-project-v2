@@ -64,3 +64,6 @@ The UI is using [`React Bootstrap`](https://react-bootstrap.netlify.app/) as a f
 - **Billing/Payment** is just sending a required amount to pay to the members that they can pay using fake credit card info (no 3rd party payment implemented)
 - **Admin**s are able to cancel any type of session (ie group or personal)
 - **Admin**s are the ones that can assign rooms to different sessions (room booking)
+
+#### Bonus Features
+- A timetable view on the **Trainer** homepage
