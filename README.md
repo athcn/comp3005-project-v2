@@ -45,7 +45,7 @@ trainer4
 - ADMIN ACCOUNTS -
 admin1
 ```
-
+---
 ### Information about Project
 This is a health and fitness web application that can run locally on your computer! Designed to track people's health but also as a management tool for organizing sessions and billing.
 
